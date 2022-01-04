@@ -6,9 +6,12 @@
       </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let brand of brands">
+        <tr (click)="setCurrentBrand(brand)"
+        routerLink="/cars/brand/{{brand.brandId}}"
+         *ngFor="let brand of brands" >
           <td>{{brand.brandId}}</td>
           <td>{{brand.brandName}}</td>
         </tr>
     </tbody>
   </table>
+  <h5 *ngIf="currentBrand">{{currentBrand.brandName}} seçtiniz.</h5>
