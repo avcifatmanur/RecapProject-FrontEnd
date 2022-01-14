@@ -21,3 +21,9 @@ button{
 button:hover{
     background-color: #25252a;
 }
+.form-control{
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-right: 5px;
+}

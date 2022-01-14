@@ -1,3 +1,9 @@
+<div class="mb-3">
+  <label for="filterText" class="form-label">Ara</label>
+  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" >
+</div>
+<div *ngIf="filterText.length>2" class="alert alert-success">
+  {{filterText}} aradınız</div>
 <table >
   <thead>
     <tr>
@@ -14,12 +20,12 @@
   <tr (click)="setCurrentCar(car)" 
   routerLink="/cars/car/{{car.carId}}"
         *ngFor="let car of cars">
-    <td>{{ car.carId }}</td>
-    <td>{{ car.carName }}</td>
+    <td>{{ car.carId |carAdded }}</td>
+    <td>{{ car.carName |uppercase }}</td>
     <td>{{ car.brandName }}</td>
     <td>{{ car.colorName }}</td>
     <td>{{ car.modelYear }}</td>
-    <td>{{ car.dailyPrice }}</td>
+    <td>{{ car.dailyPrice |currency }}</td>
     <td>{{ car.description }}</td>
     <td>
     <button type="button" class="btn btn-outline-success" routerLink="/cars/car-images/{{car.carId}}">Araç Detay</button>

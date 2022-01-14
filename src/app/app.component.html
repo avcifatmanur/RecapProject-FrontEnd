@@ -4,9 +4,10 @@
     <app-navi></app-navi>
     <a class="cta" href="#"><button class="btn btn-outline-success">Üye Girişi</button></a>
   <form class="d-flex">
-      <input class="form-control me-2" type="search" placeholder="Ara" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Ara</button>
+  <input type="text" [(ngModel)]="searchText" class="form-control" id="searchText" placeholder="search" >
+  <button class="btn btn-outline-success" type="submit">Ara</button>
   </form>
+  <div>{{searchText}} aradınız.</div>
   </header>
   <div><br></div>
   <div class="row">

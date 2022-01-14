@@ -11,6 +11,7 @@ import{ActivatedRoute} from '@angular/router';
 export class CarComponent implements OnInit {
   cars: Car[] = [];
   currentCar: Car;
+  filterText="";
   constructor(private carService: CarService,private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
