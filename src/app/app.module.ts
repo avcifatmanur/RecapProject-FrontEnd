@@ -24,6 +24,7 @@ import { CarImageComponent } from './components/car-image/car-image.component';
     RentalComponent,
     CustomerComponent,
     CarImageComponent,
+    
   ],
   imports: [
     BrowserModule,

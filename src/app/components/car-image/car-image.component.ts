@@ -1,7 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from '@angular/router';
+import { Car } from "src/app/models/car";
 import { CarImage } from 'src/app/models/carImage';
 import { CarImageService } from 'src/app/services/car-image.service';
+import { CarService } from "src/app/services/car.service";
 
 @Component({
   selector: 'app-car-image',
@@ -10,8 +12,10 @@ import { CarImageService } from 'src/app/services/car-image.service';
 })
 export class CarImageComponent implements OnInit {
   carImages:CarImage[]=[]
-
-  constructor(private carImageService:CarImageService,private activatedRoute:ActivatedRoute) { }
+  cars:Car[]=[]
+  currentImage:CarImage;
+  currentCar:Car
+  constructor(private carImageService:CarImageService,private carService:CarService,private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
@@ -19,9 +23,17 @@ export class CarImageComponent implements OnInit {
          this.getCarImageByCarId(params["carId"])
        }else{
          this.getCarImage()
+         this.getCars()
+         
        }
     })
     
+  }
+  getCars() {
+    this.carService.getCars().subscribe((response) => {
+      this.cars = response.data;
+    });
+    return this.cars;
   }
    getCarImage(){
      this.carImageService.getCarImages().subscribe(response=>{
@@ -39,4 +51,28 @@ export class CarImageComponent implements OnInit {
      let url:string="https://localhost:44375/"+carImage.imagePath
      return url
    }
+   getButtonClass(image:CarImage){
+    if (image=this.carImages[0]) {
+      return "active";
+    }
+    else{
+      return "";
+    }
+  }
+
+  getCurrentImageClass(image:CarImage){
+    if(this.carImages[0]==image){
+      return "carousel-item active";
+    } else {
+      return "carousel-item ";
+    }
+  }
+  
+  setCurrentImageClass(image:CarImage){
+    this.currentImage = image;
+  }
+  setCurrentCar(car:Car){
+    this.currentCar=car;
+  }
+
 }
