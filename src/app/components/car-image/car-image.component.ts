@@ -15,18 +15,12 @@ export class CarImageComponent implements OnInit {
   cars:Car[]=[]
   currentImage:CarImage;
   currentCar:Car
-  constructor(private carImageService:CarImageService,private carService:CarService,private activatedRoute:ActivatedRoute) { }
+  constructor(private carImageService:CarImageService,private carService:CarService) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(params=>{
-       if(params["carId"]){
-         this.getCarImageByCarId(params["carId"])
-       }else{
+    
          this.getCarImage()
          this.getCars()
-         
-       }
-    })
     
   }
   getCars() {
