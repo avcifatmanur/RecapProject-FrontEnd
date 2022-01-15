@@ -70,7 +70,7 @@
         <td>{{car.dailyPrice}}</td>
         <td>{{car.description}}</td>
         <td>
-          <button type="button" class="btn btn-outline-success" routerLink="/cars/rental/{{car.carId}}">Aracı Kirala</button>
+          <button type="button" (click)="addToCart(car)" class="btn btn-outline-success" routerLink="/cars/rental/{{car.carId}}">Aracı Kirala</button>
         </td>
       </tr>
     </tbody>

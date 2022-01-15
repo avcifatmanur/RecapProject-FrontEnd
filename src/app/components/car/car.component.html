@@ -19,8 +19,8 @@
   </thead>
   <tr (click)="setCurrentCar(car)" 
   routerLink="/cars/car/{{car.carId}}"
-        *ngFor="let car of cars">
-    <td>{{ car.carId |carAdded }}</td>
+        *ngFor="let car of cars | filterPipe:filterText" >
+    <td>{{ car.carId }}</td>
     <td>{{ car.carName |uppercase }}</td>
     <td>{{ car.brandName }}</td>
     <td>{{ car.colorName }}</td>

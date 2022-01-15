@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from "ngx-toastr";
 import { Car } from "src/app/models/car";
 import { CarImage } from 'src/app/models/carImage';
 import { CarImageService } from 'src/app/services/car-image.service';
@@ -15,7 +16,8 @@ export class CarImageComponent implements OnInit {
   cars:Car[]=[]
   currentImage:CarImage;
   currentCar:Car
-  constructor(private carImageService:CarImageService,private carService:CarService) { }
+  constructor(private carImageService:CarImageService,private carService:CarService,
+              private toastrService:ToastrService) { }
 
   ngOnInit(): void {
     
@@ -67,6 +69,10 @@ export class CarImageComponent implements OnInit {
   }
   setCurrentCar(car:Car){
     this.currentCar=car;
+  }
+
+  addToCart(car:Car){
+    this.toastrService.success("Sepete eklendi! ",car.carName)
   }
 
 }
