@@ -10,7 +10,10 @@ export class FilterPipePipe implements PipeTransform {
     filterText= filterText ? filterText.toLocaleLowerCase() : "";
 
     return filterText ? value.
-    filter((c:Car)=>c.carName.toLocaleLowerCase().indexOf(filterText)!==-1) : value;  //-1den farklıysa demek.
+    filter((c:Car)=>c.carName.toLocaleLowerCase().indexOf(filterText)!==-1 ||
+                    c.brandName.toLocaleLowerCase().indexOf(filterText)!==-1 ||
+                    c.colorName.toLocaleLowerCase().indexOf(filterText)!==-1
+    ): value;  //-1den farklıysa demek.
   }
 
 }

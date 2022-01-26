@@ -1,0 +1,10 @@
+<div *ngIf="cartItems.length>0" class="btn-group dropend">
+  <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    Sepetiniz
+  </button>
+  <ul  class="dropdown-menu">
+    <li *ngFor="let item of cartItems"><a class="dropdown-item" ><span class="badge bg-secondary">{{item.quantity}}</span> - {{item.car.carName}} - <span (click)="removeFromCart(item.car)" class="badge bg-secondary">Sil</span></a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item">Sepete Git</a></li>
+  </ul>
+</div>

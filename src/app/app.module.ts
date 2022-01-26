@@ -12,11 +12,12 @@ import { ColorComponent } from './components/color/color.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { CarImageComponent } from './components/car-image/car-image.component';
-import { CarAddedPipe } from './pipes/car-added.pipe';
 import { FilterPipePipe } from './pipes/filter-pipe.pipe';
 
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
+
 
 
 @NgModule({
@@ -29,8 +30,9 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     RentalComponent,
     CustomerComponent,
     CarImageComponent,
-    CarAddedPipe,
     FilterPipePipe,
+    CartSummaryComponent,
+ 
     
   ],
   imports: [

@@ -5,6 +5,7 @@ import { Car } from "src/app/models/car";
 import { CarImage } from 'src/app/models/carImage';
 import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from "src/app/services/car.service";
+import { CartService } from "src/app/services/cart.service";
 
 @Component({
   selector: 'app-car-image',
@@ -17,7 +18,7 @@ export class CarImageComponent implements OnInit {
   currentImage:CarImage;
   currentCar:Car
   constructor(private carImageService:CarImageService,private carService:CarService,
-              private toastrService:ToastrService) { }
+              private toastrService:ToastrService,private cartService:CartService) { }
 
   ngOnInit(): void {
     
@@ -73,6 +74,7 @@ export class CarImageComponent implements OnInit {
 
   addToCart(car:Car){
     this.toastrService.success("Sepete eklendi! ",car.carName)
+    this.cartService.addToCart(car);
   }
 
 }
