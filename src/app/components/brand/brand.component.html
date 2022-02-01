@@ -5,10 +5,11 @@
         <th>Brand Name</th>
       </tr>
     </thead>
+    
     <tbody>
         <tr (click)="setCurrentBrand(brand)"
         routerLink="/cars/brand/{{brand.brandId}}"
-         *ngFor="let brand of brands" >
+         *ngFor="let brand of brands " >
           <td>{{brand.brandId}}</td>
           <td>{{brand.brandName}}</td>
         </tr>

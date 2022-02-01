@@ -7,7 +7,7 @@
     </select>
   </div>
   <div class="col-md-4">
-    <select [(ngModel)]="colorFilter" class="form-select" aria-label="Default select example" style="background-color: lightgray; box-shadow: darkgray;">
+    <select [(ngModel)]="colorFilter" class="form-select" aria-placeholder="Renk Seçiniz" style="background-color: lightgray; box-shadow: darkgray;">
       <option value=0>Renk Seç</option>
       <option *ngFor="let color of colors" [value]="color.colorId" [selected]="getSelectedColor(color.colorId)">
         {{color.colorName}}</option>
@@ -19,7 +19,7 @@
       Filtrele
     </button>
   </div>
-</div>
+</div><br>
 <table >
   <thead>
     <tr>

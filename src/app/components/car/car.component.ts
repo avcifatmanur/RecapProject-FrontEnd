@@ -33,13 +33,13 @@ export class CarComponent implements OnInit {
     this.getColors();
 
      this.activatedRoute.params.subscribe(params=>{
-      
-       if (params["brandId"]) {
-         this.getCarsByBrand(params["brandId"])
+      if(params['brandId'] && params['colorId']){
+        this.getBrandAndColor(params['brandId'],params['colorId']);
+       
        }else if (params["colorId"]) {
          this.getCarsByColor(params["colorId"])
-       }else if(params['brandId'] & params['colorId']){
-          this.getBrandAndColor(params['brandId'],params['colorId']);
+       }else if (params["brandId"]) {
+         this.getCarsByBrand(params["brandId"])
        }
        else {
          this.getCars();
@@ -87,13 +87,14 @@ export class CarComponent implements OnInit {
     else return false;
   }
   getBrandAndColor(brandId:number,colorId:number){
-    if (brandId=0) {
-      this.getCarsByColor(colorId);
-    }else if(colorId=0){
+    if (colorId==0) {
       this.getCarsByBrand(brandId);
-    }
+    }else if (brandId==0) {
+      this.getCarsByColor(colorId);
+    }else{
       this.carService.getBrandAndColor(brandId,colorId).subscribe((response) => {
-      this.cars = response.data;
-    });
+        this.cars = response.data; });
+    }
+      
   }
 }

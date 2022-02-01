@@ -10,6 +10,7 @@ import { BrandService } from 'src/app/services/brand.service';
 export class BrandComponent implements OnInit {
   brands: Brand[] = [];
   currentBrand: Brand;
+  brandFilter:number=0;
 
   constructor(private brandService: BrandService) {}
 
@@ -23,5 +24,9 @@ export class BrandComponent implements OnInit {
   }
   setCurrentBrand(brand: Brand) {
     this.currentBrand = brand;
+  }
+  getSelectedBrand(brandId: number) {
+    if (this.brandFilter == brandId) return true;
+    else return false;
   }
 }

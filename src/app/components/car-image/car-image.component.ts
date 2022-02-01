@@ -44,8 +44,8 @@ export class CarImageComponent implements OnInit {
      })
    }
 
-   getImageSource(carImage:CarImage):string{
-     let url:string="https://localhost:44375/"+carImage.imagePath
+   getImageSource(car:Car):string{
+     let url:string="https://localhost:44375/"+car.imagePath
      return url
    }
    getButtonClass(image:CarImage){
