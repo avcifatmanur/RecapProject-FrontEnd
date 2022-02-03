@@ -7,11 +7,12 @@
         alt="Image"
       />
       <div class="card-body">
-        <h5 class="card-title">{{car.carName}}</h5>
+        <h5 class="card-title" style="text-align:center">{{car.carName}}</h5>
         <ul class="list-group list-group-flush">
-    <li class="list-group-item">{{car.brandName}}</li>
-    <li class="list-group-item">{{car.colorName}}</li>
-    <li class="list-group-item">{{car.modelYear}}</li>
+    <li class="list-group-item"><strong>MARKA: </strong>{{car.brandName}}</li>
+    <li class="list-group-item"><strong>RENK: </strong>{{car.colorName}}</li>
+    <li class="list-group-item"><strong>MODEL: </strong>{{car.modelYear}}</li>
+    <li class="list-group-item"><strong>AÇIKLAMA: </strong>{{car.description}}</li>
   </ul>
       </div>
       <button type="button" (click)="addToCart(car)" class="btn btn-outline-success" routerLink="/cars/rental/{{car.carId}}">Aracı Kirala</button>

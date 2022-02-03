@@ -16,4 +16,6 @@
       <td>{{ rental.returnDate }}</td>
     </tr>
   </table>
-  
+  Kiralama Tarihi: <input [(ngModel)]="rentDate"  type="date" class="form-control" id="rentDate"><br>
+  Dönüş Tarihi: <input [(ngModel)]="returnDate"  type="date" class="form-control" id="returnDate"><br>
+  <button type="button" (click)="createNewRental()" class="btn btn-outline-success" >Onayla</button>
