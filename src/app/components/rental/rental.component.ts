@@ -12,11 +12,22 @@ export class RentalComponent implements OnInit {
   rental:Rental;
   rentDate:Date;
   returnDate:Date;
+  minDate:string|null;
+  firstDateSelected:boolean= false;
   constructor(private rentalService: RentalService) {}
 
   ngOnInit(): void {
     this.getRentals();
-    
+    this.minDate=new Date().toISOString().slice(0,10);
+  }
+  onChangeEvent(event: any){
+    this.minDate = event.target.value
+    this.firstDateSelected = true
+  }
+  checkReturnDate(){
+    if (this.returnDate < this.rentDate) {
+      this.returnDate = this.rentDate
+    }
   }
   getRentals() {
     this.rentalService.getRentals().subscribe((response) => {
